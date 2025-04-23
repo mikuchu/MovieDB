@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Movie DB</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.0/css/ionicons.min.css"
+            integrity="sha512-JApjWRnfonFeGBY7t4yq8SWr1A6xVYEJgO/UMIYONxaR3C9GETKUg0LharbJncEzJF5Nmiv+Pr5QNulr81LjGQ=="
+            crossorigin="anonymous"
+        />
+
+    </head>
+    <body class="body">
+        <header>
+            <nav class = "bar">
+                <div class = "logo">
+                    <img src="logo.svg">
+                </div>
+                <ul id = "tabs-bar">
+                    <li> <button id = "Home"> Home </button>  </span>
+                    <li> <button id = "Liked-List"> Liked List </button> </span>
+                </ul>
+                
+            </nav>
+        </header>
+        <main id = "main-content">
+            <div class="select-container">
+                <ul class = "select-bar" id="select-bar"> 
+                    <li > <button id = "popular"> Popular </button> </li>
+                    <li > <button id = "now_playing"> Now Playing </button> </li>
+                    <li ><button id = "top_rated">Top Rated</button>  </li>
+                    <li> <button  id = "upcoming">Upcoming</button> </li>
+                </ul>
+                
+                <select class="filter-select" id ="filter-select">
+                    <option value="popular">Popular</option>
+                    <option value="now_playing">Now Playing</option>
+                    <option value="top_rated">Top Rated</option>
+                    <option value="upcoming">Upcoming</option>
+                </select>
+            </div>
+
+            <div class = "page-navigation-bar" id ="page-navigation-bar">
+                <button id = "prev" class = "page-Btn">
+                    Prev
+                </button>
+                <span id = "page-info" class="page-info"></span>
+                <button id = "next" class = "page-Btn">
+                    Next
+                </button>
+            </div>
+            
+            <div class = "list-container"></div>
+            <div id= "mv-detail-container" class="hidden"></div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>

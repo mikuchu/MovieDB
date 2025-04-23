@@ -1,0 +1,234 @@
+
+.body{
+    padding: 2rem;
+}
+
+.body .bar{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.body .bar .logo{
+    width:100px;
+    flex-shrink: 0;
+}
+
+.body .bar #tabs-bar{
+    display: flex;
+}
+
+
+.body .bar #tabs-bar li{
+    padding-top: 2rem;
+    padding-right: 5rem;
+    list-style: none;
+    font-size: 2rem;
+}
+
+
+#main-content .select-bar{
+    display: flex;
+    flex-shrink: 0;
+    flex-flow: row nowrap;
+    gap: 3rem;
+    padding: 1rem;
+}
+
+#main-content .select-bar li{
+    font-size: 1.1rem;
+    list-style: none;
+    
+}
+
+#main-content .page-navigation-bar{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+#main-content .page-navigation-bar .page-info{
+    font-size: 1.1rem;
+    padding-top: 5px;
+}
+
+#main-content .page-navigation-bar .page-Btn {
+    background-color: rgb(159, 228, 255);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#main-content .page-navigation-bar .page-Btn:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+
+#main-content .list-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 2rem; 
+}
+button.no-select{
+    all: unset;
+}
+button.select {
+    all: unset;
+    border-bottom: 0.2rem solid #89e3ff;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.select-container{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.select-container .filter-select{
+    /* all: unset; */
+    padding: 0.5rem 1rem;
+    margin-left: 10rem; 
+    margin-top: 1rem; 
+}
+
+
+
+.card{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2rem 5rem 5px rgba(0, 132, 255, 0.1);
+    text-align: center;
+}
+
+.card .poster{
+    width: 100%;
+}
+
+.card .mv-title{
+    cursor: pointer;
+    text-align: center;
+}
+.card .mv-title:hover{
+    color:aqua;
+}
+
+.card .card-detail {
+    display: flex;           
+    justify-content: space-between;  
+    align-items: center;     
+    padding: 0 1rem;         
+}
+
+.card .card-detail > div {
+    display: flex;           
+    align-items: center;      
+    gap: 0.3rem;             
+}
+
+.card .card-detail i {
+    font-size: 2rem;
+}
+.card .card-detail .ion-star{
+    color:rgb(255, 226, 129);
+}
+.card .card-detail .ion-ios-heart{
+    color:red;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.show{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.mv-detail {
+    height: 500px;
+    max-width: 1000px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
+.mv-detail .mv-detail-body {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    height: 100%;
+  }
+
+.mv-detail .mv-detail-body .mv-detail-poster{
+    max-height: 100%;
+    max-width: 500px;
+    object-fit: cover ;
+    border-radius: 3px;
+    flex-shrink: 0;
+    display: block;
+}
+.mv-detail .mv-detail-body .mv-de{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-right: 10px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.mv-detail .mv-detail-title{
+    font-size: 2rem;
+    font-weight: bold; 
+}
+
+.mv-detail .mv-detail-subtitle{
+    font-size: 1.5rem;
+    font-weight: bold; 
+}
+
+.mv-detail .ion-close-round {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.mv-detail .mv-detail-genres{
+    padding-top: 1rem;
+}
+.mv-detail .mv-detail-company{
+    max-width:50px;
+    max-height:50px;
+    padding: 4px 8px;
+}
+.mv-detail .mv-detail-overview{
+    max-height: 5rem;        
+    overflow-y: auto;         
+    padding-right: 8px;      
+    font-size: 1rem;
+}
+
+.mv-detail .mv-detail-genre{
+    background-color: rgb(141, 247, 176);
+    margin-right: 6px; 
+    padding: 4px 8px; 
+    border-radius: 3px;
+}
