@@ -140,29 +140,24 @@ button.select {
 }
 
 
-.hidden{
-    display: none;
-}
-
-.show{
+#mv-detail-container{
     position: fixed;
+    inset: 0; 
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7); 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
 .mv-detail {
     height: 500px;
     max-width: 1000px;
     background-color: white;
-    position: relative;
-    display: flex;
+    position: fixed;
     flex-direction: column;
     border-radius: 30px;
 }
@@ -174,7 +169,7 @@ button.select {
     height: 100%;
   }
 
-.mv-detail .mv-detail-body .mv-detail-poster{
+  .mv-detail .mv-detail-body .mv-detail-poster{
     max-height: 100%;
     max-width: 500px;
     object-fit: cover ;

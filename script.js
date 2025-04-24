@@ -105,54 +105,51 @@ async function changeViewMvDetail(id){
 async function closeViewMvDetail(id){
     state.viewMvDetail = null;
     const detailContainer = document.getElementById("mv-detail-container");
-    detailContainer.className = "hidden"
+    detailContainer.style.display = "none"
     await renderPage()
 }
 
 async function createMovieCardWithDetail(){
     const viewMv = state.viewMvDetail;
     const detailContainer = document.getElementById("mv-detail-container");
-    detailContainer.className = "show"
+    detailContainer.style.display = "flex"
     detailContainer.innerHTML = "";
     const mvDetailHTML = `
-        <div class="mv-detail">
-            <i class="icon ion-close-round"></i>
-            <div class="mv-detail-body">
-                <img class = "mv-detail-poster" src = "${IMG_SRC_BASE}/${viewMv.poster_path}" />
-                <div class = "mv-de"> 
-                    <div class="mv-detail-title"> ${viewMv.title} </div>
-                    <br />
-                    <div class = "overview"> 
-                        <span class = "mv-detail-subtitle"> Overview </span>
-                        <p class = "mv-detail-overview"> ${viewMv.overview} </p>
+    <div class="mv-detail">
+        <i class="icon ion-close-round"></i>
+        <div class="mv-detail-body">
+            <img class="mv-detail-poster" src="${IMG_SRC_BASE}/${viewMv.poster_path}" />
+            <div class="mv-de">
+                <div class="mv-detail-title">${viewMv.title}</div>
+                <br />
+                <div class="overview">
+                    <span class="mv-detail-subtitle">Overview</span>
+                    <p class="mv-detail-overview">${viewMv.overview}</p>
+                </div>
+                <br />
+                <div class="genres">
+                    <span class="mv-detail-subtitle">Genres</span>
+                    <div class="mv-detail-genres">
+                        ${viewMv.genres.map((genre) => `<span class="mv-detail-genre">${genre.name}</span>`).join("")}
                     </div>
-                    <br />
-                    <div class = "genres"> 
-                        <span class = "mv-detail-subtitle"> Genres </span>
-                        <div class = "mv-detail-genres">
-                        ${viewMv.genres.map((genre) => {
-                            return `<span class = "mv-detail-genre"> ${genre.name} </span>`
-                        })}  
-                        </div>
-                    </div>
-                    <br />
-                    <div class = "rating"> 
-                        <span class = "mv-detail-subtitle"> Rating </span>
-                        <p class = "mv-detail-rating"> ${viewMv.vote_average} </p>
-                    </div>
-                    <br />
-                    <div class = "production-companies"> 
-                        <div class = "mv-detail-subtitle"> Production companies </div>
-                        <div class = "mv-detail-companies">
-                            ${viewMv.production_companies.map((company) => {
-                                return `<img class = "mv-detail-company" src = "${IMG_SRC_BASE}/${company.logo_path}" />`
-                            })}  
-                        </div>
+                </div>
+                <br />
+                <div class="rating">
+                    <span class="mv-detail-subtitle">Rating</span>
+                    <p class="mv-detail-rating">${viewMv.vote_average}</p>
+                </div>
+                <br />
+                <div class="production-companies">
+                    <div class="mv-detail-subtitle">Production companies</div>
+                    <div class="mv-detail-companies">
+                        ${viewMv.production_companies.map((company) => `<img class="mv-detail-company" src="${IMG_SRC_BASE}/${company.logo_path}" />`).join("")}
                     </div>
                 </div>
             </div>
         </div>
-    `
+    </div> 
+    `;
+
     detailContainer.innerHTML = mvDetailHTML
 }
 
@@ -228,30 +225,30 @@ const selectBar_2 = document.getElementById("filter-select")
 const cardSelector = document.querySelector(".list-container")
 const closeBtn = document.getElementById("mv-detail-container")
 
-selectBar.addEventListener("click", (e) => {
-    if(e.target.tagName === "BUTTON") changeCurrentSelect(e.target.id)
+selectBar.addEventListener("click", async (e) => {
+    if(e.target.tagName === "BUTTON") await changeCurrentSelect(e.target.id)
 })
 
-navBar.addEventListener("click", (e) => {
-    if(e.target.tagName === "BUTTON") changeCurrentTab(e.target.id)
+navBar.addEventListener("click", async (e) => {
+    if(e.target.tagName === "BUTTON") await changeCurrentTab(e.target.id)
 })
 
-pageBar.addEventListener("click",(e) => {
-    if(e.target.id === "prev")  changeCurrentPage(-1)
-    else if(e.target.id === "next") changeCurrentPage(1)
+pageBar.addEventListener("click", async (e) => {
+    if(e.target.id === "prev") await changeCurrentPage(-1)
+    else if(e.target.id === "next") await changeCurrentPage(1)
 })
 
-selectBar_2.addEventListener("click", (e) => {
-    changeCurrentSelect(e.target.value)
+selectBar_2.addEventListener("click", async (e) => {
+    await changeCurrentSelect(e.target.value)
 })
 
 cardSelector.addEventListener("click", async (e) =>{
-    if(e.target.classList.contains("like-icon")) changeLike(e.target);
-    else if(e.target.className === "mv-title") changeViewMvDetail(e.target)
+    if(e.target.classList.contains("like-icon")) await changeLike(e.target);
+    else if(e.target.className === "mv-title") await changeViewMvDetail(e.target)
 })
 
-closeBtn.addEventListener("click", (e) => {
-    if(e.target.classList.contains("ion-close-round")) closeViewMvDetail(e.target)
+closeBtn.addEventListener("click", async (e) => {
+    if(e.target.classList.contains("ion-close-round")) await closeViewMvDetail(e.target)
 })
 
 renderPage()
