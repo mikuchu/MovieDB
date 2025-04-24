@@ -106,16 +106,13 @@ async function closeViewMvDetail(id){
     state.viewMvDetail = null;
     const detailContainer = document.getElementById("mv-detail-container");
     detailContainer.className = "hidden"
-    console.log(detailContainer)
     await renderPage()
 }
 
 async function createMovieCardWithDetail(){
-    // console.log(state.viewMvDetail)
     const viewMv = state.viewMvDetail;
     const detailContainer = document.getElementById("mv-detail-container");
     detailContainer.className = "show"
-    console.log(detailContainer)
     detailContainer.innerHTML = "";
     const mvDetailHTML = `
         <div class="mv-detail">
@@ -150,6 +147,7 @@ async function createMovieCardWithDetail(){
                             ${viewMv.production_companies.map((company) => {
                                 return `<img class = "mv-detail-company" src = "${IMG_SRC_BASE}/${company.logo_path}" />`
                             })}  
+                        </div>
                     </div>
                 </div>
             </div>
